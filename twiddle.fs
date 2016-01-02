@@ -1,5 +1,5 @@
 : ** \ ( n m -- n^m )
-  1 swap  0 ?do over * loop  nip ;
+  #1 swap #0 ?do over * loop  nip ;
 
 : bits-wide \ ( n-bit-width -- u )
   #2 swap ** #1 - ;
@@ -12,9 +12,6 @@
 
 : right \ ( u-target u-length -- u )
   rshift truncate-to-one-byte ;
-
-2 base !
-cr
 
 : left-right { target left right -- n-slice }
   right target left left swap right
