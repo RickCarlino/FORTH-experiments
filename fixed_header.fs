@@ -18,7 +18,6 @@ MQ:OBJECT CLASS MQ:FIXED-HEADER
 
     : TO-BINARY ( SELF -- 16 bits )
       FLAGS C@ 8 LSHIFT LENGTH C@ OR ;
-
 CLASS;
 
 2 base !
