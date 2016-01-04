@@ -7,7 +7,7 @@ s" localhost" 8883 open-socket CONSTANT SOCK_FD
 \ FUN FACT: In forth, % is binary, # is decimal and '' is ASCII char.
 create connect-packet
   %00010000 c, \ Header
-  #18       c, \ Length - fixed header length of 2
+  #18       c, \ Length minus fixed header length of 2 (20 - 2 = 18)
   #0        c, \ Protocol Length byte 1
   #6        c, \ Protocol Length byte 2
   'M'       c, \ Protocol ID
@@ -27,7 +27,28 @@ create connect-packet
   'R'       c,
   'H'       c,
 
+create pingreq-packet
+  %11000000 c,
+  %0        c,
+
+create publish-packet
+  %00110010 c,
+  #9        c, \ set later
+  #0        c, \ length msb
+  #3        c, \ length lsb
+  'a'       c,
+  '/'       c,
+  'b'       c,
+  #0        c, \ msgid msb
+  #10       c, \ msgid lsb
+  'H'       c,
+  'i'       c,
+
+: ping
+  pingreq-packet 2 SOCK_FD write-socket ;
+
 connect-packet 20 SOCK_FD write-socket
+publish-packet 11 SOCK_FD write-socket
 \ ping-packet    2  SOCK_FD write-socket
 \ SOCK_FD close-socket
 \ bye
