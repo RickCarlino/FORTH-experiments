@@ -31,12 +31,12 @@ create pingreq-packet
   %11000000 c,
   %0        c,
 
-create publish-packet
+create publish-packet \ Says "hi" on topic "a/b"
   %00110010 c,
-  #9        c, \ set later
+  #9        c, \ Length of everything after this byte.
   #0        c, \ length msb
   #3        c, \ length lsb
-  'a'       c,
+  'a'       c, \ Topic name as a string.
   '/'       c,
   'b'       c,
   #0        c, \ msgid msb
@@ -47,9 +47,11 @@ create publish-packet
 : ping
   pingreq-packet 2 SOCK_FD write-socket ;
 
+: read
+  SOCK_FD s" 12345678901234567890123456789012345678901234567890" read-socket typewhite ;
+
 connect-packet 20 SOCK_FD write-socket
 publish-packet 11 SOCK_FD write-socket
 \ ping-packet    2  SOCK_FD write-socket
 \ SOCK_FD close-socket
 \ bye
-\ SOCK_FD s" @@@@@@@@@@@@@@@@@@@@@" read-socket

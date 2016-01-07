@@ -1,7 +1,7 @@
 include ttester.fs
 
 : ** \ ( n m -- n^m )
-  #1 swap #0 ?do over * loop  nip ;
+  #1 swap #0 ?do over * loop nip ;
 
 T{ 2 1 ** -> 2  }T
 T{ 2 2 ** -> 4  }T
