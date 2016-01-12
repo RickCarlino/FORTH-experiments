@@ -1,3 +1,6 @@
+\ TODO : Looks like all the parse-name strings
+\ will get overwritten at some point?
+
 BEGIN-STRUCTURE mqtt-server
    CFIELD: ->reconnect
     FIELD: ->host-length
@@ -30,7 +33,6 @@ variable default-server mqtt-server
 : port: ( "host" --- )
  \ ================ WIP
   ;
-
 
 mqtt-server: central-hub
   host: localhost
