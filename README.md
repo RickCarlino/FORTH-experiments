@@ -1,5 +1,6 @@
-TODO:
- - [ ] Unit tests
- - [ ] Clean up code with named parameters
- - [ ] Writing raw buffers
+Stuff I've Learned:
+ - [ ] Unit testing in GForth
+ - [ ] Named parameters
+ - [ ] Writing buffers
  - [ ] Writing raw MQTT connection
+ - [ ] create ... does>
