@@ -12,7 +12,9 @@ END-STRUCTURE
 
 \ Set the "current-server" pointer to "default-server".
 CREATE current-server 1 cells allot
+variable default-server mqtt-server
 
+mqtt-server
 \ Define a new word/variable and point the current-server pointer at it.
 : mqtt-server:
   CREATE mqtt-server allot
@@ -25,9 +27,13 @@ CREATE current-server 1 cells allot
 \ default-server if no address is given.
 mqtt-server: default-server
 
+: host! ( u-hostname-ptr u-hostname-len -- )
+ ;
+
 \ =STOPPED HERE====================================
-: host:
- parse-name ;
+: host: ( "host" --- )
+ parse-name host! ;
+
 
 mqtt-server: central-hub
   host: localhost
