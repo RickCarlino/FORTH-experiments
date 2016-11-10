@@ -1,9 +1,12 @@
-This is a hands on experiment. I'm building an MQTT client for GForth.
+Where I dump stuff when I'm playing with FORTH.
 
-Stuff I've Learned:
- - [ ] Unit testing in GForth
- - [ ] Named parameters
- - [ ] Writing buffers
- - [ ] Writing raw MQTT connection
- - [ ] create ... does>
+I enjoy this kind of stuff.
+
+Things:
+ - [X] Unit testing in GForth
+ - [X] Named parameters
+ - [X] Writing buffers
+ - [X] Writing raw MQTT connection
+ - [X] create ... does>
  - [ ] `word` `parse` and `parse-word`
+ - [ ] Hooking up to websocketd and redis because why not?
