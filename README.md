@@ -1,6 +1,6 @@
 Where I dump stuff when I'm playing with FORTH.
 
-I enjoy this kind of stuff.
+I enjoy this.
 
 Things:
  - [X] Unit testing in GForth
@@ -10,3 +10,6 @@ Things:
  - [X] create ... does>
  - [ ] `word` `parse` and `parse-word`
  - [ ] Hooking up to websocketd and redis because why not?
+
+ Stuff:
+ * In case of emergency, [break glass](http://sovietov.com/app/forthwiz.html).
