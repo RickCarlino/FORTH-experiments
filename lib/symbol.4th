@@ -1,3 +1,14 @@
+\ Creates "symbols" as seen in languages like Ruby, Lisp, SMalltalk, Erlang etc.
+\ Example:
+\         symbol pizza
+\         symbol ham
+\        \ Switch statement to match a certain symbol
+\         CASE
+\           pizza OF ." It is pizza!" ENDOF
+\           ham   OF ." It's ham!"    ENDOF
+\           ." Neither!"
+\         ENDCASE
+
 \ Initialize a "symbol counter"
 variable symbol-counter
 \ It starts at 0 and grows for every symbol created.
