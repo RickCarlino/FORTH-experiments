@@ -1,6 +1,4 @@
-Where I dump stuff when I'm playing with FORTH.
-
-I enjoy this.
+Where I dump stuff when I'm playing with FORTH. I enjoy this.
 
 Things:
  - [X] Unit testing in GForth
@@ -13,3 +11,4 @@ Things:
 
  Stuff:
  * In case of emergency, [break glass](http://sovietov.com/app/forthwiz.html).
+ 
