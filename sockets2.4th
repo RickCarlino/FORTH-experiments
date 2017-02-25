@@ -8,7 +8,7 @@ s" rickcarlino.com" 80 open-socket CONSTANT SOCK_FD
   SOCK_FD write-socket ;
 
 s" GET /index.html HTTP/1.0" SOCK_FD!
-s" " SOCK_FD!
-s" " SOCK_FD!
+s\" \n" SOCK_FD!
+s\" \n" SOCK_FD!
 
-SOCK_FD my-buffer 100 read-socket
+SOCK_FD PAD 100 read-socket

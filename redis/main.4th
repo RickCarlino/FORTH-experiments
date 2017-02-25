@@ -1,14 +1,30 @@
 include unix/socket.fs
+marker --Redis
 
-\ Create a TCP socket and store the socket file ID.
-6379 CONSTANT REDIS_PORT
-s" localhost" REDIS_PORT open-socket CONSTANT REDIS_FD
+\ Stack Juggles ========================================================== \
+    : 123->321 swap rot ;
 
-\ Send a string to REDIS_FD
-: REDIS! ( string-addr string-len --- )
-  REDIS_FD write-socket ;
+\ STRINGS AND CONSTANTS ================================================== \
 
-: .REDIS
-  REDIS_FD pad 8092 read-socket type ;
-\ REDIS_FD 100 read-socket
- 
+    : HOST ( -- Address Length ) s" localhost" ;
+    6379                  constant PORT
+    HOST PORT open-socket constant Redis
+
+    \ Write to the Redis file descriptor.
+    \ Example: `s" set foo 123" Redis!`
+    : Redis! ( Address Length -- )
+        Redis write-socket ;
+
+    \ TODO: Fix this one.
+    : Redis@ ( Address MaxLength -- )
+        Redis 123->321 read-socket ;
+
+\ TRY STUFF ============================================================== \
+
+    s\" set foo 123\n" Redis!
+    s\" get foo\n"     Redis!
+
+    Redis pad 10 read-socket
+    pad 10 dump
+
+    bye
