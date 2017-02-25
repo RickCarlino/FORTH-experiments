@@ -3,12 +3,13 @@ marker --Redis
 
 \ Stack Juggles ========================================================== \
     : 123->321 swap rot ;
+    : 123->312 rot rot ;
 
 \ STRINGS AND CONSTANTS ================================================== \
 
     : HOST ( -- Address Length ) s" localhost" ;
-    6379                  constant PORT
-    HOST PORT open-socket constant Redis
+    6379                  constant PORT_ \ PORT was in use already, I guess.
+    HOST PORT_ open-socket constant Redis
 
     \ Write to the Redis file descriptor.
     \ Example: `s" set foo 123" Redis!`
@@ -17,14 +18,13 @@ marker --Redis
 
     \ TODO: Fix this one.
     : Redis@ ( Address MaxLength -- )
-        Redis 123->321 read-socket ;
+        Redis 123->312 read-socket ;
 
 \ TRY STUFF ============================================================== \
 
     s\" set foo 123\n" Redis!
     s\" get foo\n"     Redis!
-
-    Redis pad 10 read-socket
+    pad 10 Redis@
     pad 10 dump
 
     bye

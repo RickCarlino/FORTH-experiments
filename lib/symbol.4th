@@ -1,4 +1,4 @@
-\ Creates "symbols" as seen in languages like Ruby, Lisp, SMalltalk, Erlang etc.
+\ Creates "symbols" as seen in languages like Ruby, Lisp, Smalltalk, Erlang etc.
 \ Example:
 \         symbol pizza
 \         symbol ham
